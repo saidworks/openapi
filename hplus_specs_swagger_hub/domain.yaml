@@ -1,0 +1,48 @@
+# OpenAPI version identifier - required for OpenAPI 3.0 domains
+openapi: 3.0.0
+
+#######################
+# Optional info section
+#######################
+info:
+  title: H+ Sports 
+  description: Common components for H+ Sports REST APIs
+  version: 2.1.0
+
+components:
+
+  ####################
+  # Common data models
+  ####################
+  schemas:
+    Customer:
+      type: object
+      required:
+        - name
+        - customerNumber
+        
+      properties:
+        id:
+          type: string
+          example: d290f1ee
+        name:
+          type: string
+          example: John Doe
+        phone:
+          type: string
+          example: '125-234-9834'
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        productId:
+          type: integer
+          example: 1234
+        orderDate:
+          type: string
+          format: date-time
+          example: 2023-04-08T16:37:30-08:00
+        customer: 
+          $ref: '#/components/schemas/Customer'
